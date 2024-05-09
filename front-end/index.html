@@ -2,6 +2,38 @@
 <html lang="en">
 
 <head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        .numInput {
+            margin: 1rem;
+        }
+        .button {
+            margin: 1rem;
+            margin-top: 0;
+        }
+        .error {
+            color: red;
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+        }
+        label {
+            font-weight: bold;
+        }
+    </style>
     <meta name="description" content="Webpage description goes here" />
     <meta charset="utf-8">
     <title>Change_me</title>
@@ -10,11 +42,26 @@
 <body>
 
 <div class="container">
-
+    <div class="numInput">
+        <label for="amount">Loan amount</label>
+        <input type="number" id="amount" placeholder="Enter amount">
+    </div>
+    <div class="numInput">
+        <label for="interest">Interest (%)</label>
+        <input type="number" id="interest" placeholder="Enter interest rate">
+    </div>
+    <div class="numInput">
+        <label for="numOfPayments">Number of payments</label>
+        <input type="number" id="numOfPayments" placeholder="Enter a number of payments">
+    </div>
+    <button class="button" id="calculate">Calculate</button>
+    <div class="error" id="errors">
+    </div>
+    <table id="resultTable">
+    </table>
 </div>
 
-<script>
-</script>
+<script src="loan.js"></script>
 
 </body>
 </html>

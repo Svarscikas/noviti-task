@@ -6,7 +6,7 @@ services:
         volumes:
             - ./rest-api:/var/www/symfony
         ports:
-            - "8080:80"
+            - "3456:80"
         build:
             dockerfile: docker/app/Dockerfile
 

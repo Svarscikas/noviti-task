@@ -35,7 +35,7 @@ COPY docker/app/custom.ini /usr/local/etc/php/conf.d/custom.ini
 COPY docker/app/php-fpm.conf /usr/local/etc/php-fpm.d/www.custom.conf
 COPY docker/app/nginx.conf /etc/nginx/nginx.conf
 COPY docker/app/site.conf /etc/nginx/conf.d/site.conf
-COPY docker/app/supervisord.conf /etc/supervisor/conf.d/app.conf
+#COPY docker/app/supervisord.conf /etc/supervisor/conf.d/app.conf
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -43,4 +43,4 @@ RUN usermod --uid=1000 www-data && \
     groupmod --gid=1000 www-data && \
     chown -R www-data:www-data /var/www/
 
-CMD ["supervisord", "-n"]
+#CMD ["supervisord", "-n"]
