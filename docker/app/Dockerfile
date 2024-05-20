@@ -12,6 +12,9 @@ RUN apt-get update && \
 
 RUN pecl install apcu
 
+RUN wget https://get.symfony.com/cli/installer -O - | bash
+RUN mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
+
 RUN docker-php-ext-configure gd \
           --with-freetype \
           --with-jpeg && \

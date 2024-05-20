@@ -3,6 +3,10 @@
 
 <head>
     <style>
+        #loanSelect {
+            margin: 1rem;
+            margin-bottom: 0;
+        }
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
@@ -42,6 +46,9 @@
 <body>
 
 <div class="container">
+    <select id="loanSelect">
+        <option value="">Select a loan</option>
+    </select>
     <div class="numInput">
         <label for="amount">Loan amount</label>
         <input type="number" id="amount" placeholder="Enter amount">

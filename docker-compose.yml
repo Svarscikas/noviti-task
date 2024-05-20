@@ -2,21 +2,33 @@ version: '3'
 
 services:
     noviti-app:
+        environment:
+            DATABASE_URL: "postgresql://postgres:password@noviti-db:5432/noviti-db?serverVersion=15&charset=utf8"
         container_name: noviti-app
         volumes:
             - ./rest-api:/var/www/symfony
         ports:
-            - "3456:80"
+            - "8080:80"
         build:
             dockerfile: docker/app/Dockerfile
-
+        command: symfony server:start --port=80
     noviti-front:
         image: nginx
         ports:
             - 8000:80
         volumes:
             - ./front-end:/usr/share/nginx/html
-
+    noviti-db:
+        container_name: noviti-db
+        image: postgres:14.3
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: noviti-db
+        ports:
+            - 15432:5432  # This maps the host port 5432 to the container port 5432 for external access if needed.
+#        volumes:
+#            - ./postgres-data:/var/lib/postgresql/data
 
 
 networks:
